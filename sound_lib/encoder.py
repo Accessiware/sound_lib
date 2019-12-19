@@ -1,5 +1,5 @@
-from .external import pybass, pybassenc
-from .main import bass_call, bass_call_0, FlagObject
+from external import pybass, pybassenc
+from main import bass_call, bass_call_0, FlagObject
 
 class Encoder(FlagObject):
 

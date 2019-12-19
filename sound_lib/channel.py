@@ -167,19 +167,12 @@ class Channel (FlagObject):
 	@update_3d_system
 	def set_3d_position(self, position=None, orientation=None, velocity=None):
 		"""Sets the 3D position of a sample, stream, or MOD music channel with 3D functionality."""
-		old = self.get_3d_position()
-		if position is not None:
-			position = BASS_3DVECTOR(*position)
-		if position is None:
-			position = old['position']
-		if orientation is not None:
-			orientation = BASS_3DVECTOR(*orientation)
-		if orientation is None:
-			orientation = old['orientation']
-		if velocity is not None:
-			velocity = BASS_3DVECTOR(*velocity)
-		if velocity is None:
-			velocity = old['velocity']
+		if position:
+			position = pointer(position)
+		if orientation:
+			orientation = pointer(orientation)
+		if velocity:
+			velocity = pointer(velocity)
 		return bass_call(BASS_ChannelSet3DPosition, self.handle, position, orientation, velocity)
 
 	def set_link(self, handle):

@@ -1,5 +1,5 @@
-from .external import pybass
-from .channel import Channel
+from external import pybass
+from channel import Channel
 
 class Music(Channel):
 

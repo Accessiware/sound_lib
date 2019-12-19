@@ -168,7 +168,7 @@ class ThreeDOutput(Output):
 				arg = -1
 			return arg
 		environment = convert_arg(environment)
-		if isinstance(environment, str) and environment in EAX_ENVIRONMENTS:
+		if isinstance(environment, basestring) and environment in EAX_ENVIRONMENTS:
 			environment = EAX_ENVIRONMENTS[environment]
 		volume = convert_arg(volume)
 		decay = convert_arg(decay)

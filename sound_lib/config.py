@@ -1,7 +1,7 @@
 import collections
 import ctypes
-from .external import pybass
-from .main import bass_call, bass_call_0
+from sound_lib.external import pybass
+from sound_lib.main import bass_call, bass_call_0
 
 class BassConfig(collections.Mapping):
 	config_map = {

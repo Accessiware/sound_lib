@@ -1,7 +1,7 @@
 from ctypes import pointer
 from functools import partial
-from .main import bass_call, update_3d_system
-from .external.pybass import *
+from main import bass_call, update_3d_system
+from external.pybass import *
 
 def _getter(base_prop, attr, obj):
 	return getattr(getattr(obj, base_prop), attr)
@@ -27,23 +27,14 @@ class Listener(object):
 	def set_3d_position(self, position=None, velocity=None, front=None, top=None):
 		"""Sets the position, velocity, and orientation of the listener (ie. the player)."""
 		old = self.get_3d_position()
-		if position is not None:
-			position = BASS_3DVECTOR(*position)
 		if position is None:
 			position = old['position']
-		if velocity is not None:
-			velocity = BASS_3DVECTOR(*velocity)
 		if velocity is None:
 			velocity = old['velocity']
-		if front is not None:
-			front = BASS_3DVECTOR(*front)
 		if front is None:
 			front = old['front']
-		if top is not None:
-			top = BASS_3DVECTOR(*velocity)
 		if top is None:
 			top = old['top']
-			
 		position = pointer(position)
 		velocity = pointer(velocity)
 		front = pointer(front)
